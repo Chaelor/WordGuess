@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Begin RPS Script
+        var computerGuess = ["r", "p", "s"];
+        var wins= 0;
+        var ties=0;
+        var losses=0;
+
+        document.onkeyup = function(){
+        //Get user choice
+            var userChoice = event.key;
+        
+            
+        //Logic
+            if(userChoice === "r" || userChoice === "p" || userChoice === "s"){
+                //Log user choice to html id 'userChoice'
+                document.getElementById('userChoice').textContent="The user's choice was: " + userChoice;
+
+                //Get computer choice and log it to html id 'computerChoice'
+                var computerChoice = computerGuess[Math.round(Math.random()*2)];
+                document.getElementById('computerChoice').textContent="The computer chose: " + computerChoice;
+
+                //User loses with r, computer wins with p.
+                if(userChoice === "r" && computerChoice === "p"){
+                    console.log("Computer Win!"); 
+                    losses++;
+                    document.getElementById('losses').textContent="Losses: " + losses;
+                    document.getElementById('whoWon').textContent="The computer won!";
+                    
+                //User wins with r, computer loses with s.
+                }else if(userChoice === "r" && computerChoice === "s"){
+                    console.log("User wins!");
+                    wins++;
+                    document.getElementById('wins').textContent="Wins: " + wins;
+                    document.getElementById('whoWon').textContent="The user won!";
+
+                //User loses with p, computer wins with s.
+                }else if(userChoice ==="p" && computerChoice === "s"){
+                    console.log("Computer wins!");
+                    losses++;
+                    document.getElementById('losses').textContent="Losses: " + losses;
+                    document.getElementById('whoWon').textContent="The computer won!";
+                    
+                //User wins with p, computer loses with r.
+                }else if(userChoice ==="p" && computerChoice === "r"){
+                    console.log("User wins!");
+                    wins++;
+                    document.getElementById('wins').textContent="Wins: " + wins;
+                    document.getElementById('whoWon').textContent="The user won!";
+
+                //User loses with s, computer wins with r.
+                }else if (userChoice === "s" && computerChoice === "r"){
+                    console.log("Computer wins!");
+                    losses++;
+                    document.getElementById('losses').textContent="Losses: " + losses;
+                    document.getElementById('whoWon').textContent="The computer won!";
+
+                //User wins with s, computer loses with p.
+                }else if (userChoice === "s" && computerChoice === "p"){
+                    console.log("User wins!");
+                    wins++;
+                    document.getElementById('wins').textContent="Wins: " + wins;
+                    document.getElementById('whoWon').textContent="The user won!";
+
+                //If it is a tie, do this
+                }else {
+                    console.log("It's a tie!");
+                    ties++;
+                    document.getElementById('ties').textContent="Ties: " + ties;
+                    document.getElementById('whoWon').textContent="It was a tie!";
+                }
+                }
+                }
+    </script>
+    <p>Hey and thank's for visiting my rock, paper, scissors page. If you wish to play simply press the corresponding key.</p>
+    <ul textdecoration="none">
+        <li>Rock = r</li>
+        <li>Paper = p</li>
+        <li>Scissors = s</li>
+    </ul>
+    <p>Scoreboard:</p>
+    <ul>
+        <li id="wins">Wins:</li>
+        <li id="losses">Losses:</li>
+        <li id="ties">Ties:</li>
+    </ul>
+    <p id="userChoice">The user's choice was: </p>
+    <p id="computerChoice">The computer's choice was:</p>
+    <p id="whoWon">Who won: </p>
+</body>
+</html>
