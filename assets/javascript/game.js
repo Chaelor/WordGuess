@@ -3,9 +3,6 @@ var characterNames = ["doomfist", "genji", "mccree", "pharah", "reaper", "soldie
 "bastion", "hanzo", "junkrat", "mei", "torbjorn", "widowmaker", "dva", "orisa", "reinhardt", "roadhog",
 "zarya", "ana", "brigitte", "lucio", "mercy", "moira", "symmetra", "zenyatta"];
 
-//Possible user inputs
-//var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "t", "u", "v", "x", "w", "y", "z"];
-
 //Other variables
 var wins = 0;
 var losses = 0;
@@ -14,17 +11,35 @@ var currentWord = [];
 var userLives = 10;
 var computerWord = "";
 var blankGuesses= []; //For rendering the blanks in the chosen word
+var lastWord= "";
 
 //Reset the game
 function resetGame(){
+    //Print last word.
+    lastWord = computerChoice;
+    document.getElementById("game-over").innerHTML = "The last word was: " + lastWord + ". Begin typing again to start a new game";
+
     userGuesses =[];
     currentWord = [];
     userLives = 10;
     computerWord = "";
     blankGuesses= [];
+
+    //Resets the word choice
     computerWord = [Math.floor(Math.random()* characterNames.length)];
     computerChoice = characterNames[computerWord];
-console.log(computerChoice);
+    console.log(computerChoice);
+
+    //Resets the blank guesses
+    for( var i = 0; i < computerChoice.length; i++) {
+        blankGuesses.push(" _ ");
+    }
+
+    //Resets the word choice
+    for( var i = 0; i< computerChoice.length; i++) {
+        currentWord.push(computerChoice[i].charAt(0))
+    }
+    renderGame();
 }
 
 //get a random character from the characterNames array
@@ -43,7 +58,7 @@ for( var i = 0; i< computerChoice.length; i++) {
     currentWord.push(computerChoice[i].charAt(0))
 }
 
-//Start gathering user data
+//Start gathering user data on keys down
 document.addEventListener('keydown', function(event) {
     var userInput = event.key;
     console.log(userInput);
@@ -67,9 +82,8 @@ document.addEventListener('keydown', function(event) {
         renderGame();
     }
 
-    //Does the user have 0 lives?
+    //Does the user have 0 lives? If they do, start a game
     if (userLives === 0){
-        document.getElementById("game-over").innerHTML = "<h1> Game Over! Hit another key to start a new game</h1>";
         losses++;
         resetGame();
     }

@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Overwatch Word Guess!</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 </head>
+
 <body>
-    <p>Hello and welcome to Overwatch character Hangman!</p>
-    <p><span id="game-state"></span></p>
-    <p><span id="total-wins"></span></p>
-    <p><span id="total-losses"></span></p>
-    <p><span id="guesses-remaining"></span></p>
-    <p><span id="guessed-letters"></span></p>
-    <p><span id="game-over"></span></p>
+    <div class="container">
+        <header>
+            <h1>Welcome to Overwatch Hangman!</h1>
+            <h2>Press any key to guess a letter!</h2>
+        </header>
+        <div class="game">
+            <p>
+                <span id="game-state"></span>
+            </p>
+            <p>
+                <span id="total-wins"></span>
+            </p>
+            <p>
+                <span id="total-losses"></span>
+            </p>
+            <p>
+                <span id="guesses-remaining"></span>
+            </p>
+            <p>
+                <span id="guessed-letters"></span>
+            </p>
+            <p>
+                <span id="game-over"></span>
+            </p>
+        </div>
+    </div>
 </body>
-    <script type="text/javascript" src="game.js"></script>
+<script type="text/javascript" src="./assets/javascript/game.js"></script>
+
 </html>
