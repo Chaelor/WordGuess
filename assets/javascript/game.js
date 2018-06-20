@@ -4,14 +4,14 @@ var characterNames = ["doomfist", "genji", "mccree", "pharah", "reaper", "soldie
 "zarya", "ana", "brigitte", "lucio", "mercy", "moira", "symmetra", "zenyatta"];
 
 //Other variables
-var wins = 0;
-var losses = 0;
-var userGuesses =[];
-var currentWord = [];
-var userLives = 10;
-var computerWord = "";
+var wins = 0; //Tracks wins
+var losses = 0; //Tracks losses
+var userLives = 10; //Tracking the lives
+var userGuesses =[]; //Store the guessed variables here
+var currentWord = []; //Store the current word we are guessing here
+var computerWord = ""; //Stores the initial math for getting the computer word
 var blankGuesses= []; //For rendering the blanks in the chosen word
-var lastWord= "";
+var lastWord= ""; //So the user knows what the last word was
 
 //Reset the game
 function resetGame(){
@@ -19,6 +19,7 @@ function resetGame(){
     lastWord = computerChoice;
     document.getElementById("game-over").innerHTML = "The last word was: " + lastWord + ". Begin typing again to start a new game";
 
+    //Resets the variables
     userGuesses =[];
     currentWord = [];
     userLives = 10;
@@ -39,6 +40,8 @@ function resetGame(){
     for( var i = 0; i< computerChoice.length; i++) {
         currentWord.push(computerChoice[i].charAt(0))
     }
+
+    //Render the fresh game-state
     renderGame();
 }
 
@@ -106,4 +109,5 @@ function renderGame() {
     document.getElementById("guessed-letters").innerHTML = "You've guessed:" + userGuesses.join();
 }
 
+//Calling the initial render after the rest of everything else has loaded.
 renderGame();
