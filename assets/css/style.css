@@ -49,7 +49,7 @@ footer{
 
 .navbar {
     padding:0;
-    color:white;
+    font-family: 'Kurale', serif;
 }
 
 .nav-item:hover{
