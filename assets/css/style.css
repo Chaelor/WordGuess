@@ -15,33 +15,67 @@ body {
 
 
 /******** Header ********/
-header {
-    margin-top: 10px;
-    padding: 10px;
-}
-h1 {
-    font-size: 2em;
-    color:rgb(221, 125, 0);
-    text-align: center;
+
+header{
+    width:100%;
+    margin: 0 auto;
 }
 
-h2{
-    font-size: 1.65em;
-    color:rgb(221, 125, 0);
+header h1{
+    font-family: 'Kurale', serif;
+    color:white;
+}
+
+footer{
+    position: fixed;
+    bottom:0;
+    padding-top: 15px;
+    border-top: solid 10px;
+    border-color: #4aaaa5;
+    height:50px;
     text-align: center;
+    width: 100%;
+    font-family: 'Kurale', serif;
+}
+
+.push {
+    height:75px;
+}
+
+.navbar-brand {
+    background-color: #4aaaa5;
+    border-radius:2px;
+}
+
+.navbar {
+    padding:0;
+    color:white;
+}
+
+.nav-item:hover{
+    background-color: #4aaaa5;
+    border-radius: 5px;
+}
+
+.ml-auto {
+    margin-top: 7px;
+    justify-content: center;
 }
 
 
 /******* Game content and Container ********/
-.container {
+.game-container {
     width: 700px;
     margin: 0 auto;
-    background-color: lightgrey;
-    opacity: .85;
+    background-color: rgba(211, 211, 211, 0.85);
     margin-top: 200px;
     overflow: auto;
     height:500px;
     border-radius: 15px;
+}
+
+.game-container h1, h2 {
+    text-align: center;
 }
 
 .game {
@@ -53,7 +87,7 @@ h2{
 }
 
 .game p {
-    padding:15px 0;
+    padding:4px 0;
     text-align: center;
     font-size: 1.25em;
 }
