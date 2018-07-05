@@ -52,6 +52,11 @@ footer{
     font-family: 'Kurale', serif;
 }
 
+.nav-item {
+    animation: moveInLeftItem 1s ease-out .33s;
+    animation-fill-mode: backwards;
+}
+
 .nav-item:hover{
     background-color: #4aaaa5;
     border-radius: 5px;
@@ -60,6 +65,38 @@ footer{
 .ml-auto {
     margin-top: 7px;
     justify-content: center;
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes  moveInLeftItem{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 
